@@ -7,10 +7,64 @@ public class Main {
 
     public static void main(String [] args) throws IOException {
 
+        //Creamos variables a usar en el ejercicio
+        String rutaAbsoluta = ("C:" + File.separator + "AD" + File.separator + "Ejercicios");
+
         Scanner scanner = new Scanner (System.in);
 
-        //Primero guardamos la ruta en un String:
-        String rutaAbsoluta = ("C:" + File.separator + "AD" + File.separator + "Ejercicios");
+        menuEjercicios();
+
+        while(true) {
+
+            String input1 = scanner.nextLine();
+
+            if (input1.equals("1")) {
+
+                ejercicio1();
+
+            } else if (input1.equals("2")) {
+
+                ejercicio2(scanner);
+
+
+            } else if (input1.equalsIgnoreCase("exit")) {
+
+                System.out.println("Bye-bye!");
+                break;
+
+            } else {
+
+                System.out.println("Inténtalo de nuevo o escribe 'exit'");
+
+            }
+        }
+
+    }
+
+    public static void menu(){
+        System.out.println("----------------------");
+        System.out.println("Ficheros y directorios");
+        System.out.println("----------------------");
+        System.out.println("teclea el número de la opción deseada:");
+        System.out.println("1 -Crear un directorio nuevo 'nuevoDirectorio'");
+        System.out.println("2 -Crear un fichero nuevo");
+        System.out.println("3 -Borrar 'fichero_de_texto2.txt'");
+        System.out.println("4 -Eliminar la carpeta 'nuevoDirectorio'");
+        System.out.println("5 -Salir");
+        System.out.println("----------------------");
+    }
+
+    public static void menuEjercicios(){
+        System.out.println("-----------");
+        System.out.println("Elige un ejercicio. Ejercicios 1 y 2 disponibles.");
+        System.out.println();
+        System.out.println("Introduce el número del ejercicio y presiona 'Enter'");
+        System.out.println("------------");
+    }
+
+    public static void ejercicio1(){
+
+
 
 
         //Creamos miDirectorio (tipo File) con el constructor
@@ -36,7 +90,11 @@ public class Main {
 
         }
 
-        //PARTE 2: Ampliar el programa
+    }
+
+    public static void ejercicio2 (Scanner scanner) {
+
+    //PARTE 2: Ampliar el programa
 
         System.out.println();
         menu();
@@ -44,6 +102,7 @@ public class Main {
 
         File nuevoDirectorio;
         File ficheroTexto2;
+
 
         while(true){
 
@@ -154,18 +213,8 @@ public class Main {
             System.out.println();
         }
 
+
     }
 
-    public static void menu(){
-        System.out.println("----------------------");
-        System.out.println("Ficheros y directorios");
-        System.out.println("----------------------");
-        System.out.println("teclea el número de la opción deseada:");
-        System.out.println("1 -Crear un directorio nuevo 'nuevoDirectorio'");
-        System.out.println("2 -Crear un fichero nuevo");
-        System.out.println("3 -Borrar 'fichero_de_texto2.txt'");
-        System.out.println("4 -Eliminar la carpeta 'nuevoDirectorio'");
-        System.out.println("5 -Salir");
-        System.out.println("----------------------");
-    }
+
 }
