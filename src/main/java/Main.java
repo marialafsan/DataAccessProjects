@@ -42,9 +42,8 @@ public class Main {
         menu();
         System.out.println();
 
-        //Creamos los File fuera del bucle:
-        File nuevoDirectorio = null;
-        File ficheroTexto2 = null;
+        File nuevoDirectorio;
+        File ficheroTexto2;
 
         while(true){
 
@@ -118,8 +117,7 @@ public class Main {
 
                 rutaAbsoluta = ("C:" + File.separator + "AD" + File.separator + "Ejercicios");
                 nuevoDirectorio = new File(rutaAbsoluta, "nuevoDirectorio");
-                rutaAbsoluta += File.separator + "nuevoDirectorio";
-                ficheroTexto2 = new File(rutaAbsoluta, "fichero_de_texto2");
+                ficheroTexto2 = new File(nuevoDirectorio, "fichero_de_texto2");
 
                 //Eliminamos el directorio
 
