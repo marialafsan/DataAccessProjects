@@ -117,16 +117,18 @@ public class Main {
 
                 rutaAbsoluta = ("C:" + File.separator + "AD" + File.separator + "Ejercicios");
                 nuevoDirectorio = new File(rutaAbsoluta, "nuevoDirectorio");
-                ficheroTexto2 = new File(nuevoDirectorio, "fichero_de_texto2");
+                ficheroTexto2 = new File(nuevoDirectorio, "fichero_de_texto2.txt");
 
                 //Eliminamos el directorio
 
                 //Comprobamos que existe y que está vacío:
 
                 if (nuevoDirectorio.exists()) {
+
                     if (ficheroTexto2.exists()){
 
                         System.out.println("El directorio no está vacío. Elimina el contenido para proceder al borrado");
+
                     }else{
                         nuevoDirectorio.delete();
 
