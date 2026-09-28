@@ -18,7 +18,7 @@ de aprendizaje y *debug* llevado a cabo en los ejercicios.
 - [ ] **T1 RA 1 --Ficheros de texto y binarios**
   - [x] Ejercicio 1
   - [x] Ejercicio 2
-  - [ ] Ejercicio 3
+  - [x] Ejercicio 3
   - [ ] Ejercicio 4
   
 - [ ] RA 2
