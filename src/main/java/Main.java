@@ -31,6 +31,12 @@ public class Main {
 
                 ejercicio3(scanner);
 
+            } else if (input1.equals("4")){
+
+                ejercicio4(scanner);
+
+
+
             } else if (input1.equalsIgnoreCase("exit")) {
 
                 System.out.println("Bye-bye!");
@@ -50,7 +56,7 @@ public class Main {
         System.out.println("--TAREA 1 RA1 -Ficheros y directorios--");
         System.out.println("---------------------------------------");
 
-        System.out.println("Ejercicios 1, 2 y 3 disponibles.");
+        System.out.println("Ejercicios 1, 2, 3 y 4 disponibles.");
         System.out.println();
         System.out.println("Introduce el número del ejercicio y presiona 'Enter'. \n \nTeclea 'exit' para finalizar el programa");
         System.out.println("-----------");
@@ -387,5 +393,53 @@ public class Main {
         menuEjercicios();
 
     }
+
+public static void ejercicio4(Scanner scanner) throws IOException {
+
+    //PARTE 4: Fichero que escriba en Empleados.txt un listado de empleados con 10 empleados.
+
+    System.out.println("---------------------------------------");
+    System.out.println("--            Ejercicio 4            --");
+    System.out.println("---------------------------------------");
+    System.out.println();
+    System.out.println("Creando fichero Empleados.txt... ");
+
+    String rutaAbsoluta = ("C:" + File.separator + "AD" + File.separator + "Ejercicios");
+    File nuevoDirectorio = new File(rutaAbsoluta, "nuevoDirectorio");
+    File empleados = new File(nuevoDirectorio, "Empleados.txt");
+
+    if (!(nuevoDirectorio.exists())) { //Si no existe, lo creamos
+        nuevoDirectorio.mkdir();
+    }
+
+    empleados.createNewFile();
+
+    System.out.println("Fichero creado con éxito!");
+    System.out.println();
+    System.out.println("Introduce los nombres de los empleados y presiona 'enter'");
+
+    String[] nombres = new String[10];
+
+    for (int i=0 ; i < 10; i++){
+
+        System.out.println("Nombre empleado " + (i+1) + ":");
+        System.out.println();
+        nombres[i] = scanner.nextLine();
+
+    }
+
+    System.out.println("Lista empleados: ");
+
+    for (int i=0 ; i < 10; i++){
+
+        System.out.println("Empleado " + (i+1) + ":");
+        System.out.println();
+        System.out.println(nombres[i]);
+
+    }
+
+    menuEjercicios();
+
+}
 
 }

@@ -20,6 +20,8 @@ de aprendizaje y *debug* llevado a cabo en los ejercicios.
   - [x] Ejercicio 2
   - [x] Ejercicio 3
   - [ ] Ejercicio 4
+  - [ ] ***Importante***: try/catch
+  - [ ] Adicional: scanner.nextLine().trim()
   
 - [ ] RA 2
 - [ ] RA 3
