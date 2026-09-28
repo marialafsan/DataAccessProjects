@@ -9,6 +9,8 @@ public class Main {
 
         //Creamos variables a usar en el ejercicio
         String rutaAbsoluta = ("C:" + File.separator + "AD" + File.separator + "Ejercicios");
+        File miDirectorio = new File (rutaAbsoluta, "miDirectorio");
+        File ficheroTexto = new File (rutaAbsoluta,"fichero_de_texto.txt");
 
         Scanner scanner = new Scanner (System.in);
 
@@ -31,44 +33,46 @@ public class Main {
 
                 System.out.println("Bye-bye!");
                 break;
-
-            } else {
+                        } else {
 
                 System.out.println("Inténtalo de nuevo o escribe 'exit'");
-
+                System.out.println();
+                menuEjercicios();
             }
         }
 
     }
 
     public static void menu(){
-        System.out.println("----------------------");
-        System.out.println("Ficheros y directorios");
-        System.out.println("----------------------");
+        System.out.println("---------------------------------------");
+        System.out.println("--TAREA 1 RA1 -Ficheros y directorios--");
+        System.out.println("---------------------------------------");
         System.out.println("teclea el número de la opción deseada:");
         System.out.println("1 -Crear un directorio nuevo 'nuevoDirectorio'");
         System.out.println("2 -Crear un fichero nuevo");
         System.out.println("3 -Borrar 'fichero_de_texto2.txt'");
         System.out.println("4 -Eliminar la carpeta 'nuevoDirectorio'");
         System.out.println("5 -Salir");
-        System.out.println("----------------------");
+        System.out.println("---------------------------------------");
     }
 
     public static void menuEjercicios(){
         System.out.println("-----------");
         System.out.println("Elige un ejercicio. Ejercicios 1 y 2 disponibles.");
         System.out.println();
-        System.out.println("Introduce el número del ejercicio y presiona 'Enter'");
-        System.out.println("------------");
+        System.out.println("Introduce el número del ejercicio y presiona 'Enter'. \n \nTeclea 'exit' para finalizar el programa");
+        System.out.println("-----------");
     }
 
-    public static void ejercicio1(){
+    public static void ejercicio1() throws IOException {
 
+        //Creamos variables a usar en el ejercicio
+        String rutaAbsoluta = ("C:" + File.separator + "AD" + File.separator + "Ejercicios");
+        File miDirectorio = new File (rutaAbsoluta, "miDirectorio");
+        File ficheroTexto = new File (miDirectorio,"fichero_de_texto.txt");
 
-
-
-        //Creamos miDirectorio (tipo File) con el constructor
-        File miDirectorio = new File (rutaAbsoluta, "miDirectorio"); //parámetros: ruta y nombre del directorio o archivo
+        System.out.println("Creando directorio 'miDirectorio' y fichero 'fichero_de_texto...");
+        System.out.println();
 
         //Si no existe ya, creamos un directorio con el método mkdirs()
         if (miDirectorio.mkdirs()){
@@ -79,9 +83,6 @@ public class Main {
 
         rutaAbsoluta += File.separator + "miDirectorio"; //actualizamos la ruta para entrar en la carpeta nueva miDirectorio
 
-        //Creamos ficheroTexto con el constructor, de nuevo
-        File ficheroTexto = new File (rutaAbsoluta,"fichero_de_texto.txt");
-
         //Si no existe ya, creamos el fichero con createNewFile()
         if (ficheroTexto.createNewFile()){
             System.out.println("Fichero creado con éxito");
@@ -89,10 +90,12 @@ public class Main {
             System.out.println("El fichero ya existe");
 
         }
+        System.out.println();
+        menuEjercicios();
 
     }
 
-    public static void ejercicio2 (Scanner scanner) {
+    public static void ejercicio2 (Scanner scanner) throws IOException {
 
     //PARTE 2: Ampliar el programa
 
@@ -102,6 +105,7 @@ public class Main {
 
         File nuevoDirectorio;
         File ficheroTexto2;
+        String rutaAbsoluta;
 
 
         while(true){
@@ -200,7 +204,6 @@ public class Main {
 
             }else if (inputUsuario.equals("5") || inputUsuario.equalsIgnoreCase("exit")){
 
-                System.out.println("Bye!");
                 break;
 
             } else {
@@ -212,6 +215,9 @@ public class Main {
             menu();
             System.out.println();
         }
+
+        menuEjercicios();
+
 
 
     }
