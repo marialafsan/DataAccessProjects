@@ -31,6 +31,12 @@ public class Main {
 
                 ejercicio3(scanner);
 
+            } else if (input1.equals("4")){
+
+                ejercicio4(scanner);
+
+            }
+
             } else if (input1.equalsIgnoreCase("exit")) {
 
                 System.out.println("Bye-bye!");
@@ -387,5 +393,127 @@ public class Main {
         menuEjercicios();
 
     }
+
+public static void ejercicio4(Scanner scanner) throws IOException {
+
+    //PARTE 4: Fichero que escriba en Empleados.txt un listado de empleados con 10 empleados.
+
+
+
+
+
+    File nuevoDirectorio;
+    File empleados;
+    String rutaAbsoluta;
+
+
+    while (true) {
+
+        String inputUsuario = scanner.nextLine();
+
+        if (inputUsuario.equals("1")) {
+
+            //Creamos nuevoDirectorio
+
+            //Ruta:
+            rutaAbsoluta = ("C:" + File.separator + "AD" + File.separator + "Ejercicios");
+            nuevoDirectorio = new File(rutaAbsoluta, "nuevoDirectorio");
+
+            //Si no existe, mkdirs():
+            if (nuevoDirectorio.mkdirs()) {
+
+                System.out.println("Directorio 'nuevoDirectorio' creado con éxito");
+            } else {
+
+                System.out.println("El directorio ya existe");
+            }
+
+        } else if ((inputUsuario.equals("2"))) {
+
+            //Creamos fichero_de_texto_2
+
+            rutaAbsoluta = ("C:" + File.separator + "AD" + File.separator + "Ejercicios");
+
+            //Comprobamos que existe el directorio para proceder:
+
+            nuevoDirectorio = new File(rutaAbsoluta, "nuevoDirectorio");
+
+            if (nuevoDirectorio.exists()) {
+
+                ficheroTexto2 = new File(nuevoDirectorio, "fichero_de_texto2.txt");
+
+                if (ficheroTexto2.createNewFile()) {
+
+                    System.out.println("Fichero 'fichero_de_texto2.txt' creado con éxito");
+                } else {
+
+                    System.out.println("El fichero ya existe");
+                }
+
+            } else {
+
+                System.out.println("El directorio de destino no existe, crea primero el directorio padre");
+            }
+
+
+        } else if ((inputUsuario.equals("3"))) {
+
+            rutaAbsoluta = ("C:" + File.separator + "AD" + File.separator + "Ejercicios");
+            nuevoDirectorio = new File(rutaAbsoluta, "nuevoDirectorio");
+            ficheroTexto2 = new File(nuevoDirectorio, "fichero_de_texto2.txt");
+
+            //Eliminamos fichero_de_texto2.txt
+
+            //Comprobamos que existe:
+            if (ficheroTexto2.exists()) {
+                ficheroTexto2.delete();
+
+                System.out.println("Fichero borrado con éxito");
+            } else {
+
+                System.out.println("El fichero 'fichero_de_texto2.txt' no se encuentra en el directorio");
+            }
+
+        } else if ((inputUsuario.equals("4"))) {
+
+            rutaAbsoluta = ("C:" + File.separator + "AD" + File.separator + "Ejercicios");
+            nuevoDirectorio = new File(rutaAbsoluta, "nuevoDirectorio");
+            ficheroTexto2 = new File(nuevoDirectorio, "fichero_de_texto2.txt");
+
+            //Eliminamos el directorio
+
+            //Comprobamos que existe y que está vacío:
+
+            if (nuevoDirectorio.exists()) {
+
+                if (ficheroTexto2.exists()) {
+
+                    System.out.println("El directorio no está vacío. Elimina el contenido para proceder al borrado");
+
+                } else {
+                    nuevoDirectorio.delete();
+
+                    System.out.println("Directorio borrado con éxito");
+                }
+            } else {
+
+                System.out.println("El directorio no existe");
+            }
+
+        } else if (inputUsuario.equals("5") || inputUsuario.equalsIgnoreCase("exit")) {
+
+            break;
+
+        } else {
+
+            System.out.println("Comando no válido. Inténtalo de nuevo");
+        }
+
+        System.out.println();
+    }
+
+    menuEjercicios();
+
+}
 
 }
