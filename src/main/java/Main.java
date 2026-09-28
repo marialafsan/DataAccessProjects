@@ -323,7 +323,7 @@ public class Main {
                     System.out.println("Fichero borrado con éxito");
                 } else {
 
-                    System.out.println("El fichero 'fichero_de_texto2.txt' no se encuentra en el directorio");
+                    System.out.println("El fichero 'fichero_de_texto2.txt' no existe");
                 }
 
             } else if ((inputUsuario.equals("4"))) {
@@ -363,9 +363,11 @@ public class Main {
 
                     printer.write("Almería\nCádiz\nCórdoba\nGranada\nHuelva\nJaén\nMálaga\nSevilla");
 
+                    System.out.println("Acción completada");
+
                 } else {
 
-                    System.out.println("El fichero 'fichero_de_texto2.txt' no se encuentra en el directorio");
+                    System.out.println("El fichero 'fichero_de_texto2.txt' no existe");
                 }
 
             } else if (inputUsuario.equals("6") || inputUsuario.equalsIgnoreCase("exit")) {
