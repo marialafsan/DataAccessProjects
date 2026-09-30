@@ -1,4 +1,5 @@
 import java.io.*;
+import java.sql.SQLOutput;
 import java.util.*;
 import java.io.IOException;
 
@@ -417,27 +418,53 @@ public static void ejercicio4(Scanner scanner) throws IOException {
     System.out.println("Fichero creado con éxito!");
     System.out.println();
     System.out.println("Introduce los nombres de los empleados y presiona 'enter'");
+    System.out.println();
 
-    String[] nombres = new String[10];
+    String[] nombres = new String[5]; //5 empleados para hacer más sencillo el debugging
 
-    for (int i=0 ; i < 10; i++){
+    for (int i=0 ; i < 5; i++){
 
         System.out.println("Nombre empleado " + (i+1) + ":");
-        System.out.println();
-        nombres[i] = scanner.nextLine();
+        nombres[i] = ("ID " + (i+1) + ": " + scanner.nextLine());
 
     }
 
-    System.out.println("Lista empleados: ");
+    try (FileWriter fw = new FileWriter (empleados)){
 
-    for (int i=0 ; i < 10; i++){
+        for (String nombre:nombres){
+            fw.write(nombre + "\n");
+        }
 
-        System.out.println("Empleado " + (i+1) + ":");
         System.out.println();
-        System.out.println(nombres[i]);
+        System.out.println("Lista de empleados escrita en el documento");
+        System.out.println();
 
+    }catch (IOException e){
+        System.out.println("Error: " + e.getMessage());
     }
 
+    //Ahora leemos la lista de los empleados desde el fichero:
+
+   try (FileReader fr = new FileReader (empleados)){
+
+       int c = 0;
+       System.out.println("Lectura del fichero 'Empleados.txt':");
+       System.out.println();
+
+
+       c=fr.read();
+       //Al acabar de leer, FileReader devuelve -1, así que leeremos hasta que lo devuelva
+       while (c != -1){
+           System.out.print((char) c); //para escribirlo, convertimos el int (UNICODE) a char
+           c = fr.read();
+       }
+
+   }catch (IOException e){
+       System.out.println("Error: " + e.getMessage());
+   }
+    System.out.println();
+    System.out.println("---------------------------------------");
+    System.out.println();
     menuEjercicios();
 
 }
