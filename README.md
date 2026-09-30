@@ -15,12 +15,12 @@ de aprendizaje y *debug* llevado a cabo en los ejercicios.
 
 ### *Tareas*
 
-- [ ] **T1 RA 1 --Ficheros de texto y binarios**
+- [x] **T1 RA 1 --Ficheros de texto y binarios**
   - [x] Ejercicio 1
   - [x] Ejercicio 2
   - [x] Ejercicio 3
   - [x] Ejercicio 4
-  - [ ] ***Importante***: try/catch
+  - [ ] **!** Añadir *try/catch* a ejercicios antiguos **!**
   - [ ] *Adicional:* scanner.nextLine().trim()
   
 - [ ] RA 2
