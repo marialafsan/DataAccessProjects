@@ -22,11 +22,6 @@ de aprendizaje y *debug* llevado a cabo en los ejercicios.
   - [x] Ejercicio 4
   - [ ] **!** Añadir *try/catch* a ejercicios antiguos **!**
   - [ ] *Adicional:* scanner.nextLine().trim()
-  
-- [ ] RA 2
-- [ ] RA 3
-- [ ] RA 6
-- [ ] RA 4
-- [ ] RA 5
+
 
 
