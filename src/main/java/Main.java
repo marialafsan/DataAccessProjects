@@ -1,5 +1,4 @@
 import java.io.*;
-import java.sql.SQLOutput;
 import java.util.*;
 import java.io.IOException;
 
@@ -449,7 +448,6 @@ public static void ejercicio4(Scanner scanner) throws IOException {
 
        int c = 0;
        System.out.println("Lectura del fichero 'Empleados.txt':");
-       System.out.println();
 
 
        c=fr.read();
@@ -462,8 +460,59 @@ public static void ejercicio4(Scanner scanner) throws IOException {
    }catch (IOException e){
        System.out.println("Error: " + e.getMessage());
    }
+
     System.out.println();
     System.out.println("---------------------------------------");
+    System.out.println();
+
+    //* BufferedReader - BufferedWriter *//
+
+    System.out.println("Repetimos el mismo proceso, pero usando BufferedReader y BufferedWriter");
+
+    //01.10.26, 02.10.26
+
+    try {
+
+        BufferedWriter bw = new BufferedWriter(new FileWriter(rutaAbsoluta + File.separator + "Empleados.txt"));
+
+        BufferedReader br = new BufferedReader(new FileReader(rutaAbsoluta + File.separator + "Empleados.txt"));
+
+        //Introducimos de nuevo los nombres de los empleados para escribirlos en el fichero usando BufferedWriter:
+        System.out.println();
+        System.out.println("Introduce los nombres de otros 5 empleados. Presiona 'enter' tras cada nombre de empleado");
+        System.out.println();
+        String[] nombres2 = new String[5]; //5 empleados para hacer más sencillo el debugging
+        for (int i=0 ; i < 5; i++){
+            System.out.println("Nombre empleado " + (i+1) + ":");
+            nombres2[i] = ("ID " + (i+1) + ": " + scanner.nextLine());
+        }
+        //
+
+        for (String nombre: nombres2){
+            bw.write(nombre);
+            bw.newLine();
+        }
+        bw.flush();
+
+        System.out.println();
+        System.out.println("Lista de empleados escrita en el documento");
+        System.out.println();
+
+        System.out.println("A continuación, leemos el documento 'Empleados.txt' y lo imprimimos por pantalla:");
+
+        String linea = br.readLine();
+
+        while(linea != null){
+            System.out.println(linea);
+            linea = br.readLine();
+        }
+
+
+    }catch (IOException e){
+        System.out.println("Error: " + e.getMessage());
+    }
+
+
     System.out.println();
     menuEjercicios();
 
